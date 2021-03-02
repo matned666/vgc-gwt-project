@@ -1,0 +1,49 @@
+body {
+    background-color: #ffffff;
+}
+
+.rnd-button {
+    margin-left: 50%;
+    margin-right: 50%;
+    width: 200px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #000;
+    border: 2px black;
+    border-radius: 50px;
+    box-shadow: 0 9px #999;
+}
+
+.not-selected {
+    background-color: #ffffff;
+}
+
+.selected {
+    background-color: rgba(69, 226, 70, 0.42);
+}
+
+.selected:hover {
+    background-color: rgb(157, 216, 157);
+}
+
+.selected:active {
+    background-color: rgb(238, 255, 239);
+}
+
+.not-selected:hover {background-color: #eeeeee}
+
+.not-selected:active {background-color: #dddddd}
+
+.rnd-button:active {
+    background-color: #dddddd;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.menu-bar {
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+}

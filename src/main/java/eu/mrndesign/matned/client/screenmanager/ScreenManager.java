@@ -15,10 +15,11 @@ public class ScreenManager implements
 
 {
 
+    private ScreenType screenType;
     private ScreenInterface screen;
 
     public ScreenManager() {
-
+        screenType = ScreenType.INDEX;
     }
 
     //    on start game we have menu
@@ -33,18 +34,26 @@ public class ScreenManager implements
         if (screen != null) screen.hide();
         switch (screenType) {
             case ABOUT: {
+                this.screenType = ScreenType.ABOUT;
                 screen = new AboutScreen(this);
                 break;
             }
             case CONTACT: {
+                this.screenType = ScreenType.CONTACT;
                 screen = new ContactScreen(this);
                 break;
             }
             default: {
+                this.screenType = ScreenType.INDEX;
                 screen = new IndexScreen(this);
             }
         }
         screen.show();
+    }
+
+    @Override
+    public ScreenType screenType(){
+        return screenType;
     }
 
 
