@@ -1,0 +1,10 @@
+/.idea/
+/.target/
+.project
+.classpath
+.settings
+target
+test
+*.iml
+.idea
+/visual-garage-creator.iml
