@@ -15,7 +15,7 @@ public abstract class MenuButton extends Button {
     }
 
     protected void initButton(ScreenManager.ScreenType screenType){
-        this.getElement().setClassName("rnd-button not-selected");
+        this.getElement().setClassName("button not-selected");
         this.addClickHandler(x-> screenManager.initializeScreen(screenType));
     }
 

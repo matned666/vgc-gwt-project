@@ -6,6 +6,7 @@ import eu.mrndesign.matned.client.screenmanager.ScreenManagerInterface;
 
 public class AboutScreen extends BaseScreenWithMenu implements AboutScreenInterface{
 
+    boolean isActive;
 
     public AboutScreen(ScreenManagerInterface screenManager) {
         super(screenManager);
@@ -15,5 +16,15 @@ public class AboutScreen extends BaseScreenWithMenu implements AboutScreenInterf
     @Override
     public ScreenManager.ScreenType getScreenType() {
         return screenType;
+    }
+
+    @Override
+    public boolean isActive() {
+        return isActive;
+    }
+
+    @Override
+    public void setActive(boolean status) {
+        isActive = status;
     }
 }

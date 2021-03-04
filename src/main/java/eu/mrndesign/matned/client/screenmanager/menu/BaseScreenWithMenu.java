@@ -1,6 +1,6 @@
 package eu.mrndesign.matned.client.screenmanager.menu;
 
-import com.google.gwt.user.client.ui.Grid;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import eu.mrndesign.matned.client.screenmanager.BaseScreen;
 import eu.mrndesign.matned.client.screenmanager.ScreenManagerInterface;
 
@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class BaseScreenWithMenu extends BaseScreen {
 
 
-    private Grid menuGrid;
+    private VerticalPanel menuPanel;
     private List<MenuButton> widgets;
 
     public BaseScreenWithMenu(ScreenManagerInterface screenManager) {
@@ -18,25 +18,24 @@ public abstract class BaseScreenWithMenu extends BaseScreen {
         initialize();
     }
 
-    private void initialize(){
+    private void initialize() {
         widgets = new LinkedList<>();
         widgets.add(new HomeButton(screenManager));
         widgets.add(new AboutButton(screenManager));
         widgets.add(new ContactButton(screenManager));
-        menuGrid = new Grid(1,widgets.size());
+        menuPanel = new VerticalPanel();
         addButtons();
-        menuGrid.getElement().setClassName("menu-bar");
-        addWidget(0,0,menuGrid);
+        menuPanel.getElement().setClassName("menu-bar buttons-bar");
+        addWidget(menuPanel);
     }
 
-    protected void addButtons(){
-        widgets.forEach(x->{
-            if (x.isSelected(screenManager.screenType()))
-                x.getElement().setClassName("rnd-button selected");
+    protected void addButtons() {
+        widgets.forEach(x -> {
+            menuPanel.add(x);
+            if (x.isSelected(screenManager.screenType())) {
+                x.getElement().setClassName("button selected");
+            }
         });
-        for (int i = 0; i < widgets.size(); i++) {
-            menuGrid.setWidget(0, i, widgets.get(i));
-        }
     }
 
 

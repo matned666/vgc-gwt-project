@@ -5,12 +5,13 @@ import com.google.gwt.user.client.ui.*;
 public abstract class BaseScreen  extends Composite implements ScreenInterface {
 
     protected ScreenManagerInterface screenManager;
-    private final Grid mainGrid;
+    private final HorizontalPanel mainGrid;
     protected ScreenManager.ScreenType screenType;
 
     public BaseScreen(ScreenManagerInterface screenManager) {
         this.screenManager = screenManager;
-        mainGrid = new Grid(3,1);
+        mainGrid = new HorizontalPanel();
+        mainGrid.getElement().setClassName("menu-bar left");
         initWidget(mainGrid);
     }
 
@@ -26,8 +27,8 @@ public abstract class BaseScreen  extends Composite implements ScreenInterface {
 
 
 
-    protected void addWidget(int y, int x, Widget widget){
-        mainGrid.setWidget(x,y, widget);
+    protected void addWidget(Widget widget){
+        mainGrid.add(widget);
     }
 
 }
